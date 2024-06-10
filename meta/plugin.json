@@ -1,0 +1,16 @@
+{
+    "name": "TARGOBANK",
+    "namespace": "Targobank",
+    "type": "payment",
+    "author": "Osman Demirel",
+    "version": "1.0.0",
+    "description": "TARGOBANK Payment Integration",
+    "pluginIcon": "icon.png",
+    "require": {
+      "plentyDevTool": "^1.0"
+    },
+    "runOnBuild": [
+      "PaymentMethod\\Migrations\\CreatePaymentMethod"
+    ]
+  }
+  
