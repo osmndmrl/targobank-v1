@@ -19,9 +19,9 @@ class TargobankPaymentMethod extends PaymentMethodBaseService
 
     public function getIcon(string $lang): string
     {
-        // Ödeme yönteminin ikon yolunu döndürün
-        return plugin_path('Targobank').'/images/icon.png';
+        return '/plugins/TARGOBANK/resources/images/targobank.png';
     }
+    
 
     public function getDescription(string $lang): string
     {
