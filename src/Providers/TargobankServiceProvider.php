@@ -5,29 +5,21 @@ namespace Targobank\Providers;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use Targobank\Methods\TargobankPaymentMethod;
-use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
-use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
-use Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd;
-use Plenty\Plugin\Routing\Router;
-use Plenty\Plugin\Http\Response;
 
 class TargobankServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->getApplication()->register(TargobankRouteServiceProvider::class);
     }
 
-    public function boot(PaymentMethodContainer $payContainer, Router $router)
+    public function boot(PaymentMethodContainer $payContainer)
     {
-        $payContainer->register('Targobank::TargobankPayment', TargobankPaymentMethod::class,
-            [
-                AfterBasketCreate::class,
-                AfterBasketChanged::class,
-                AfterBasketItemAdd::class
-            ]
-        );
-
-        $router->get('payment/targobank/checkoutSuccess', 'Targobank\Controllers\PaymentController@checkoutSuccess');
-        $router->get('payment/targobank/checkoutCancel', 'Targobank\Controllers\PaymentController@checkoutCancel');
+        $payContainer->register('targobank::Targobank', TargobankPaymentMethod::class, [
+            'Plenty\Modules\Basket\Events\Basket\AfterBasketChanged',
+            'Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd',
+            'Plenty\Modules\Basket\Events\Basket\AfterBasketCreate'
+        ]);
     }
 }
+
