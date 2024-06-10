@@ -1,13 +1,12 @@
 {
-    "name": "TARGOBANK",
-    "namespace": "Targobank",
-    "type": "payment",
-    "author": "Osman Demirel",
-    "version": "1.0.0",
-    "description": "TARGOBANK Payment Integration",
-    "pluginIcon": "icon.png",
-    "runOnBuild": [
-      "PaymentMethod\\Migrations\\CreatePaymentMethod"
-    ]
-  }
-  
+  "name": "TARGOBANK",
+  "namespace": "Targobank",
+  "type": "payment",
+  "author": "Targobank",
+  "version": "1.0.0",
+  "description": "TARGOBANK Payment Integration",
+  "pluginIcon": "icon.png",
+  "runOnBuild": [
+    "PaymentMethod\\Migrations\\CreatePaymentMethod"
+  ]
+}

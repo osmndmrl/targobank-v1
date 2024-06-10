@@ -2,7 +2,6 @@
 namespace Targobank\Methods;
 
 use Plenty\Modules\Payment\Method\Services\PaymentMethodBaseService;
-use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
 
 class TargobankPaymentMethod extends PaymentMethodBaseService
 {
