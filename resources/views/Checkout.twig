@@ -1,0 +1,10 @@
+<div class="col-xs-12 col-sm-6">
+    {{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
+    <a v-resource-if:user="isLoggedIn" href="/checkout" class="btn btn-primary btn-block checkOutBtn" title="{{ trans("Ceres::Ceres.basketToCheckout") }}">
+        {{ trans("Ceres::Ceres.basketToCheckout") }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </a>
+    <a v-resource-if:user="!isLoggedIn" href="/login" class="btn btn-primary btn-block checkOutBtn" title="{{ trans("Ceres::Ceres.basketToCheckout") }}">
+        {{ trans("Ceres::Ceres.basketToCheckout") }} <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </a>
+    {{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
+</div>
